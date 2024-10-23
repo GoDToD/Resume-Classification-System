@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from services.utils import classify_resume
 
 app = Flask(__name__)
 CORS(app)
@@ -14,7 +15,10 @@ def post_upload_image():
     if 'image' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
     file = request.files['resume']
-    return jsonify({"message": "Recognised"})
+    file.save(f"{app.config['upload_folder']}/uploaded_resume.pdf")
+    
+    result = classify_resume(f"{app.config['upload_folder']}/uploaded_resume.pdf")
+    return jsonify({"message": "Recognised", result: result})
 
 @app.route('/api/class_count', methods=['GET'])
 def get_class_count():

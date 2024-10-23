@@ -6,3 +6,7 @@ def get_pdf_text(pdf_path):
     for page in reader.pages:
         text += page.extract_text()
     return text
+
+def classify_resume(pdf_path):
+    text = get_pdf_text(pdf_path)
+    return ["Software Engineer", "Data Scientist", "Business Analyst"]
