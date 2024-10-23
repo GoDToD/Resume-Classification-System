@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from services.utils import classify_resume
+from services.utils import classify_resume, get_pdf_text
 
 app = Flask(__name__)
 CORS(app)
-app.config['upload_folder'] = './uploaded_images'
+app.config['upload_folder'] = './uploaded_pdf'
 
 @app.route('/', methods=['GET'])
 def home():
@@ -12,17 +12,22 @@ def home():
 
 @app.route('/api/upload_resume', methods=['POST'])
 def post_upload_image():
-    if 'image' not in request.files:
+    if 'resume' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
     file = request.files['resume']
-    file.save(f"{app.config['upload_folder']}/uploaded_resume.pdf")
-    
-    result = classify_resume(f"{app.config['upload_folder']}/uploaded_resume.pdf")
-    return jsonify({"message": "Recognised", result: result})
+    print("get_pdf_text", get_pdf_text(file))
+    result = classify_resume(file)
+    # file.save(f"{app.config['upload_folder']}/{file.filename}")
+
+    return jsonify({"message": "Recognised", "result": result})
 
 @app.route('/api/class_count', methods=['GET'])
 def get_class_count():
     return jsonify({"message": "Pie chart data"})
+
+@app.route('/api/login', methods=['POST'])
+def post_login():
+    return jsonify({"message": "Login successful"})
 
 
 if __name__ == '__main__':
