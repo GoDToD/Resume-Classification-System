@@ -6,4 +6,3 @@ def get_pdf_text(pdf_path):
     for page in reader.pages:
         text += page.extract_text()
     return text
-
