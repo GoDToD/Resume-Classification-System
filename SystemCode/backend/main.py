@@ -29,11 +29,12 @@ def post_bulk_upload():
     if 'resumes' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
     files = request.files.getlist('resumes')
+    results = {}
     for file in files:
-        result = classify_resume(file)
+        results[file.filename] = classify_resume(file)
         # file.save(f"{app.config['upload_folder']}/{file.filename}")
-        
-    return jsonify({"message": "Bulk upload successful"})
+
+    return jsonify({"message": "Bulk upload successful", "results": results})
 
 @app.route('/api/login', methods=['POST'])
 def post_login():
