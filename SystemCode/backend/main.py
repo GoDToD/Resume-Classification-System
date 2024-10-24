@@ -14,11 +14,17 @@ def home():
 def post_upload_resume():
     if 'resume' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
-    file = request.files['resume']
-    result = classify_resume(file)
+    files = [request.files['resume']]
+    results = classify_resume(files)
+    table_data = []
+    row_data = {}
+    for result in results:
+        row_data['name'] = 'Test Name'
+        row_data['job_title'] = result
+    table_data.append(row_data)
     # file.save(f"{app.config['upload_folder']}/{file.filename}")
 
-    return jsonify({"message": "Recognised", "result": result})
+    return jsonify({"message": "Recognised", "result": table_data})
 
 @app.route('/api/class_count', methods=['GET'])
 def get_class_count():
@@ -26,15 +32,18 @@ def get_class_count():
 
 @app.route('/api/bulk_upload', methods=['POST'])
 def post_bulk_upload():
-    if 'resumes' not in request.files:
+    if 'resume' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
-    files = request.files.getlist('resumes')
-    results = {}
-    for file in files:
-        results[file.filename] = classify_resume(file)
-        # file.save(f"{app.config['upload_folder']}/{file.filename}")
-
-    return jsonify({"message": "Bulk upload successful", "results": results})
+    files = request.files.getlist('resume')
+    print('Files:',files)
+    results = classify_resume(files)
+    table_data = []
+    row_data = {}
+    for result in results:
+        row_data['name'] = 'Test Name'
+        row_data['job_title'] = result
+        table_data.append(row_data)
+    return jsonify({"message": "Bulk upload successful", "result": table_data})
 
 @app.route('/api/login', methods=['POST'])
 def post_login():

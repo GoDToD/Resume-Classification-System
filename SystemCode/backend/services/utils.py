@@ -37,17 +37,18 @@ def clean(text):
     
     return clean_text
 
-def classify_resume(file):
-    text_array = []
-    text = get_pdf_text(file)
-    text = clean(text)
+def classify_resume(files : list):
     tfidf = pickle.load(open('models\TfidfVectorizer.pkl', 'rb'))
-    text = tfidf.transform([text])
-    print('Text: ',text)
-    print('Text type: ',type(text))
-    print('Text shape: ',text.shape)
     model = pickle.load(open('models\KNeighborsClassifier.pkl', 'rb'))
-    result = model.predict(text)
-    print('Result: ',result)
+    le = pickle.load(open('models\LabelEncoder.pkl', 'rb'))
+    text_array = []
+    for file in files:
+        text = get_pdf_text(file)
+        text = clean(text)
+        text_array.append(text)
+    text_array = tfidf.transform(text_array).toarray()
+    print('Text Array: ',text_array)
+    results = model.predict(text_array)
+    results = le.inverse_transform(results)
 
-    return result
+    return results
