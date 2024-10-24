@@ -11,7 +11,7 @@ def home():
     return jsonify({"message": "API server is running"})
 
 @app.route('/api/upload_resume', methods=['POST'])
-def post_upload_image():
+def post_upload_resume():
     if 'resume' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
     file = request.files['resume']

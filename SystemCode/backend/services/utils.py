@@ -38,12 +38,16 @@ def clean(text):
     return clean_text
 
 def classify_resume(file):
+    text_array = []
     text = get_pdf_text(file)
     text = clean(text)
     tfidf = pickle.load(open('models\TfidfVectorizer.pkl', 'rb'))
     text = tfidf.transform([text])
+    print('Text: ',text)
+    print('Text type: ',type(text))
+    print('Text shape: ',text.shape)
     model = pickle.load(open('models\KNeighborsClassifier.pkl', 'rb'))
-    result = model.predict([text])
+    result = model.predict(text)
     print('Result: ',result)
 
     return ["Software Engineer", "Data Scientist", "Business Analyst"]
