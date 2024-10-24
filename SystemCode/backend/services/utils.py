@@ -50,4 +50,4 @@ def classify_resume(file):
     result = model.predict(text)
     print('Result: ',result)
 
-    return ["Software Engineer", "Data Scientist", "Business Analyst"]
+    return result
