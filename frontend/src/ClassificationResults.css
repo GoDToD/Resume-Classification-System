@@ -1,0 +1,62 @@
+.classification-results-container {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000; 
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.result-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.file-title {
+  margin: 0 0 10px;
+  cursor: pointer; 
+  color: #1f618d; 
+}
+
+.result-details {
+  margin-top: 10px; 
+}
+
+.result-detail {
+  padding: 10px; 
+  color: #2e4053;
+}
+
+.result-detail strong {
+  color: #1f618d; 
+}
+
+.result-details a {
+  text-decoration: none;
+  color: #2874a6; 
+}
+
+.result-details a:hover {
+  text-decoration: underline; 
+}
+
+.divider {
+  border: 0; 
+  height: 1px; 
+  background-color: #ccc; 
+  margin: 10px 0; 
+}
+
+.no-results {
+  text-align: center;
+  color: red; 
+}
