@@ -11,17 +11,26 @@ FEMALE_NAMES = set(names.words('female.txt'))
 def extract_gender(text):
     gender_pattern = re.compile(r"\b(Male|Female|Other)\b", re.IGNORECASE)
     gender_match = gender_pattern.search(text)
-    return gender_match.group(0) if gender_match else None
+    result = gender_match.group(0) if gender_match else None
+    if result:
+        result = result.strip().lower()
+    return result
 
 def extract_phone(text):
     phone_pattern = re.compile(r"\+?\d{1,4}[-\s]?\(?\d{1,4}\)?[-\s]?\d{1,4}[-\s]?\d{1,4}[-\s]?\d{1,4}")
     phone_match = phone_pattern.search(text)
-    return phone_match.group(0) if phone_match else None
+    result = phone_match.group(0) if phone_match else None
+    if result:
+        result = result.strip()
+    return result
 
 def extract_email(text):
     email_pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b")
     email_match = email_pattern.search(text)
-    return email_match.group(0) if email_match else None
+    result = email_match.group(0) if email_match else None
+    if result:
+        result = result.strip()
+    return result
 
 def get_pdf_text(pdf_path):
     reader = PdfReader(pdf_path)
@@ -75,7 +84,7 @@ def extract_name(text):
                 persons.append(person_name)
     if len(persons) < 1:
         return '' 
-    return persons[0]
+    return persons[0].lstrip().rstrip()
 
 def clean(text):
     # Compile patterns for URLs and emails to speed up cleaning process
@@ -110,12 +119,12 @@ def classify_resume(files : list):
         row_data['name'] = extract_name(text)
         row_data['email'] = extract_email(text)
         row_data['phone'] = extract_phone(text)
-
+        row_data['gender'] = extract_gender(text)
         text = clean(text)
         text = tfidf.transform([text]).toarray()
         result = model.predict(text)
         job_title = le.inverse_transform(result)
-        row_data['job_title'] = job_title[0]
+        row_data['job_title'] = job_title[0].lstrip().rstrip()
 
         results.append(row_data)
 
