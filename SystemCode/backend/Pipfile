@@ -12,6 +12,7 @@ pandas = "*"
 matplotlib = "*"
 nltk = "*"
 scikit-learn = "*"
+python-docx = "*"
 
 [dev-packages]
 

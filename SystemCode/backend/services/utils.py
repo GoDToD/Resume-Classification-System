@@ -3,6 +3,7 @@ import pickle
 from nltk.corpus import stopwords, names
 from nltk import word_tokenize, pos_tag, ne_chunk, Tree
 import re
+import docx
 
 MALE_NAMES = set(names.words('male.txt'))
 FEMALE_NAMES = set(names.words('female.txt'))
@@ -28,6 +29,22 @@ def get_pdf_text(pdf_path):
     for page in reader.pages:
         text += page.extract_text()
     return text
+
+def get_docx_text(docx_path):
+    doc = docx.Document(docx_path)
+    text = ''
+    for para in doc.paragraphs:
+        text += para.text
+    return text
+
+def get_text(file):
+    if file.filename.endswith('.pdf'):
+        return get_pdf_text(file)
+    elif file.filename.endswith('.docx'):
+        return get_docx_text(file)
+    else:
+        return ''
+    
 
 def is_person_name(name):
     # NLTK 名字库匹配
@@ -87,7 +104,7 @@ def classify_resume(files : list):
     results = []
     for file in files:
         row_data = {}
-        text = get_pdf_text(file)
+        text = get_text(file)
         print('Text:',text)
 
         row_data['name'] = extract_name(text)
