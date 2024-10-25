@@ -1,7 +1,26 @@
 from pypdf import PdfReader
 import pickle
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, names
+from nltk import word_tokenize, pos_tag, ne_chunk, Tree
 import re
+
+MALE_NAMES = set(names.words('male.txt'))
+FEMALE_NAMES = set(names.words('female.txt'))
+
+def extract_gender(text):
+    gender_pattern = re.compile(r"\b(Male|Female|Other)\b", re.IGNORECASE)
+    gender_match = gender_pattern.search(text)
+    return gender_match.group(0) if gender_match else None
+
+def extract_phone(text):
+    phone_pattern = re.compile(r"\+?\d{1,4}[-\s]?\(?\d{1,4}\)?[-\s]?\d{1,4}[-\s]?\d{1,4}[-\s]?\d{1,4}")
+    phone_match = phone_pattern.search(text)
+    return phone_match.group(0) if phone_match else None
+
+def extract_email(text):
+    email_pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b")
+    email_match = email_pattern.search(text)
+    return email_match.group(0) if email_match else None
 
 def get_pdf_text(pdf_path):
     reader = PdfReader(pdf_path)
@@ -10,14 +29,38 @@ def get_pdf_text(pdf_path):
         text += page.extract_text()
     return text
 
-def clean(text):
-    """
-    Clean the input text by removing URLs, emails, special characters, and stop words.
-    
-    :param text: The string to be cleaned
-    :return: The cleaned string
-    """
+def is_person_name(name):
+    # NLTK 名字库匹配
+    return name in MALE_NAMES or name in FEMALE_NAMES
+#函数：判断提取到的实体是否是技术术语或常见名字
 
+def extract_name(text):
+    # Tokenization 和 POS Tagging
+    tokens = word_tokenize(text)
+    pos_tags = pos_tag(tokens)
+    
+    # NER：命名实体识别
+    named_entities = ne_chunk(pos_tags)
+    
+    # 提取 PERSON 实体
+    persons = []
+    for subtree in named_entities:
+        if isinstance(subtree, Tree) and subtree.label() == 'PERSON':
+            person_name = " ".join([token for token, pos in subtree.leaves()])
+            
+            name_parts = person_name.split()  # 拆分成名字和姓
+            
+            # 检查每个部分是否是 NLTK 名字库中的名字
+            valid_name_parts = [part for part in name_parts if is_person_name(part)]
+            #print("valid_name",valid_name_parts )
+            # 如果至少一个部分匹配 NLTK 名字库，我们认为这是一个有效名字
+            if len(valid_name_parts) >= 1:
+                persons.append(person_name)
+    if len(persons) < 1:
+        return '' 
+    return persons[0]
+
+def clean(text):
     # Compile patterns for URLs and emails to speed up cleaning process
     url_pattern = re.compile(r'https?://\S+|www\.\S+')
     email_pattern = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
@@ -41,14 +84,22 @@ def classify_resume(files : list):
     tfidf = pickle.load(open('models\TfidfVectorizer.pkl', 'rb'))
     model = pickle.load(open('models\KNeighborsClassifier.pkl', 'rb'))
     le = pickle.load(open('models\LabelEncoder.pkl', 'rb'))
-    text_array = []
+    results = []
     for file in files:
+        row_data = {}
         text = get_pdf_text(file)
+        print('Text:',text)
+
+        row_data['name'] = extract_name(text)
+        row_data['email'] = extract_email(text)
+        row_data['phone'] = extract_phone(text)
+
         text = clean(text)
-        text_array.append(text)
-    text_array = tfidf.transform(text_array).toarray()
-    print('Text Array: ',text_array)
-    results = model.predict(text_array)
-    results = le.inverse_transform(results)
+        text = tfidf.transform([text]).toarray()
+        result = model.predict(text)
+        job_title = le.inverse_transform(result)
+        row_data['job_title'] = job_title[0]
+
+        results.append(row_data)
 
     return results
