@@ -52,7 +52,7 @@ function ResumeUpload() {
       const response = await axios.post("http://127.0.0.1:7766/api/bulk_upload", formData);
       const data = response.data;
       
-      if (data.message === "Recognised" && data.result) {
+      if (data.message === "Bulk upload successful" && data.result) {
         // Store the received data in localStorage
         localStorage.setItem('classificationResults', JSON.stringify(data.result));
         window.location.href = "/classification-results";
