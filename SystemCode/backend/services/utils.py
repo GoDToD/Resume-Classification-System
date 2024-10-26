@@ -95,12 +95,24 @@ def get_top_tfidf_keywords(text, selected_words, stop_words, max_features=10):
     return list(zip(top_words, top_scores))
 
 def extract_gender(text):
-    gender_pattern = re.compile(r"\b(Male|Female|Other)\b", re.IGNORECASE)
-    gender_match = gender_pattern.search(text)
-    result = gender_match.group(0) if gender_match else None
-    if result:
-        result = result.strip().lower()
-    return result
+    # Define patterns to match male and female gender keywords
+    male_keywords = r'\b(male|man|he|him|his|boy|gentleman|mr\.?)\b'
+    female_keywords = r'\b(female|woman|she|her|hers|girl|lady|mrs\.?|miss)\b'
+    
+    # Normalize the text to lowercase to handle case-insensitivity
+    text = text.lower()
+    
+    # Check for male-related keywords
+    if re.search(male_keywords, text):
+        return "Male"
+    
+    # Check for female-related keywords
+    elif re.search(female_keywords, text):
+        return "Female"
+    
+    # If no gender-related keywords are found
+    else:
+        return "Gender not specified"
 
 def extract_phone(text):
     phone_pattern = re.compile(r"\+?\d{1,4}[-\s]?\(?\d{1,4}\)?[-\s]?\d{1,4}[-\s]?\d{1,4}[-\s]?\d{1,4}")
