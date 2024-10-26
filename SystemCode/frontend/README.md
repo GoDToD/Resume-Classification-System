@@ -1,6 +1,6 @@
 # Resume Classification System Frontend
 
-A React-based user interface for the Resume Classification System, designed to handle résumé uploads and display classification results in a structured, user-friendly format. This application is part of a larger system aimed at assisting HR professionals and job-seekers.
+A React-based user interface for the Resume Classification System, designed to handle resume uploads and display classification results in a structured, user-friendly format. This application is part of a larger system aimed at assisting HR professionals and job-seekers.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -14,7 +14,7 @@ A React-based user interface for the Resume Classification System, designed to h
 - [Contributing](#contributing)
 
 ## Project Overview
-The frontend component of the Resume Classification System offers a smooth interface for résumé upload and classification results viewing. Developed with React, it enables users to upload PDFs and .docx files, which are then processed by the backend to provide classification insights.
+The frontend component of the Resume Classification System offers a smooth interface for resume upload and classification results viewing. Developed with React, it enables users to upload PDFs and .docx files, which are then processed by the backend to provide classification insights.
 
 ## Features
 - **Drag-and-Drop File Upload:** Upload résumés quickly via drag-and-drop or file selection.
@@ -61,7 +61,7 @@ The frontend component of the Resume Classification System offers a smooth inter
 ## Component Overview
 
 ### 1. ResumeUpload
-This component provides the interface for uploading résumés. Key functionalities include:
+This component provides the interface for uploading resumes. Key functionalities include:
 - **File Selection:** Users can either drag-and-drop files into the upload area or select them manually. Only PDF and .docx formats are accepted.
 - **File Validation:** Ensures only valid file types are uploaded, displaying a list of pending files.
 - **Bulk Upload:** When the upload button is clicked, files are sent to the backend API endpoint `/api/bulk_upload`.
