@@ -60,14 +60,16 @@ function ClassificationResults() {
                       <p><strong>Phone:</strong> <a href={`tel:${detail.phone}`}>{detail.phone || 'N/A'}</a></p>
                       <p><strong>Gender:</strong> {detail.gender || 'N/A'}</p>
                       
-                      {/* Display key words and relevance scores */}
+                      {/* Display key words and relevance scores sorted from low to high */}
                       <div className="keywords-section">
                         <h4>Key Words:</h4>
                         <ul>
-                          {detail.key_words.map(([keyword, score], kwIndex) => (
-                            <li key={kwIndex}>
-                              <strong>{keyword}</strong> - Relevance: {(score * 100).toFixed(2)}%
-                            </li>
+                          {detail.key_words
+                            .sort((a, b) => a[1] - b[1]) // Sort by relevance (score) in ascending order
+                            .map(([keyword, score], kwIndex) => (
+                              <li key={kwIndex}>
+                                <strong>{keyword}</strong> - Relevance: {(score * 100).toFixed(2)}%
+                              </li>
                           ))}
                         </ul>
                       </div>
