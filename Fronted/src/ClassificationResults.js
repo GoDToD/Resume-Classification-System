@@ -58,6 +58,18 @@ function ClassificationResults() {
                       <p><strong>Name:</strong> {detail.name || 'N/A'}</p>
                       <p><strong>Email:</strong> <a href={`mailto:${detail.email}`}>{detail.email || 'N/A'}</a></p>
                       <p><strong>Phone:</strong> <a href={`tel:${detail.phone}`}>{detail.phone || 'N/A'}</a></p>
+                      
+                      <div className="keywords-section">
+                        <h4>Key Words:</h4>
+                        <ul>
+                          {detail.key_words.map(([keyword, score], kwIndex) => (
+                            <li key={kwIndex}>
+                              <strong>{keyword}</strong> - Relevance: {(score * 100).toFixed(2)}%
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
                       {idx < jobResult.details.length - 1 && <hr className="divider" />}
                     </div>
                   ))}
