@@ -1,6 +1,6 @@
 # Resume Classification System Frontend
 
-A React-based user interface for the Resume Classification System, designed to handle résumé uploads and display classification results in a structured, user-friendly format. This application is part of a larger system aimed at assisting HR professionals and job-seekers.
+A React-based user interface for the Resume Classification System, designed to handle resume uploads and display classification results in a structured, user-friendly format. This application is part of a larger system aimed at assisting HR professionals and job-seekers.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -61,7 +61,7 @@ The frontend component of the Resume Classification System offers a smooth inter
 ## Component Overview
 
 ### 1. ResumeUpload
-This component provides the interface for uploading résumés. Key functionalities include:
+This component provides the interface for uploading resumes. Key functionalities include:
 - **File Selection:** Users can either drag-and-drop files into the upload area or select them manually. Only PDF and .docx formats are accepted.
 - **File Validation:** Ensures only valid file types are uploaded, displaying a list of pending files.
 - **Bulk Upload:** When the upload button is clicked, files are sent to the backend API endpoint `/api/bulk_upload`.
