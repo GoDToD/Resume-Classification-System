@@ -39,7 +39,7 @@ Working on this project has been a highly rewarding experience for our team, pro
 | :------------ |:---------------:| :-----| :-----|
 | Cheng Siyuan | A0287262X | software structure design, backend development, model deployment, backend data pre-processing and post-processing| e1285208@u.nus.edu |
 | Qin Jiayu | A0296744M | Designed the system module, drew the system architecture diagram, wrote the team project report, and searched for data sets| e1350882@u.nus.edu|
-| Wang Xiang | A0298765A | software structure design, frontend development，searched for data sets，System selection| e1352903@u.nus.edu |
+| Wang Xiang | A0298765A | software structure design, frontend development，searched for data sets，System selection and Market demand analysis| e1352903@u.nus.edu |
 | Zhu Yinge | A0295228W | Dataset Expansion and Cleaning,Training and Comparison of Multiple Models,Improvement in Name Recognition| e1349366@u.nus.edu |
 
 ---
