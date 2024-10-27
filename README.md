@@ -57,32 +57,122 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-### [ 1 ] To run the system using iss-vm
-
-> download pre-built virtual machine from http://bit.ly/iss-vm
-
-> start iss-vm
-
-> open terminal in iss-vm
-
-> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
-
-> $ source activate iss-env-py2
-
-> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
-
-> (iss-env-py2) $ python app.py
-
-> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
-
-### [ 2 ] To run the system in other/local machine:
-### Install additional necessary libraries. This application works in python 2 only.
-
-> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
-
-> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
+Here's a sample format for a **User Guide** in Markdown format that you could use in your GitHub repository to explain the usage of the frontend and backend:
 
 ---
+
+# Resume Recognition and Recommendation System User Guide
+
+This user guide provides instructions on how to set up, run, and interact with the frontend and backend components of the Resume Recognition and Recommendation System.
+
+---
+
+## Table of Contents
+1. [System Requirements](#system-requirements)
+2. [Backend Setup](#backend-setup)
+3. [Frontend Setup](#frontend-setup)
+4. [Running the System](#running-the-system)
+5. [Using the System](#using-the-system)
+
+---
+
+## System Requirements
+
+Before setting up the system, ensure that you have the following software installed:
+
+- **Python 3.8+**
+- **Node.js 14+**
+- **npm** (comes with Node.js)
+- **Pipenv** (for managing Python dependencies)
+
+---
+
+## Backend Setup
+
+The backend is responsible for processing resumes, classifying skills, and generating job recommendations.
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/GoDToD/Resume-Classification-System.git
+cd Resume-Classification-System/SystemCode
+```
+
+### Step 2: Install Dependencies
+
+Navigate to the backend directory and install dependencies using Pipenv:
+
+```bash
+cd backend
+pipenv install
+```
+
+### Step 3: Start the Backend Server
+
+After installing dependencies, you can run the backend server:
+
+```bash
+pipenv run python main.py
+```
+
+The backend will start on `http://localhost:5000` by default.
+
+---
+
+## Frontend Setup
+
+The frontend provides a user-friendly interface for uploading resumes and viewing job recommendations.
+
+### Step 1: Navigate to the Frontend Directory
+
+```bash
+cd ../frontend
+```
+
+### Step 2: Install Dependencies
+
+Install the required frontend dependencies using npm:
+
+```bash
+npm install
+```
+
+### Step 3: Start the Frontend Server
+
+Run the following command to start the frontend server:
+
+```bash
+npm start
+```
+
+The frontend will start on `http://localhost:3000` by default.
+
+---
+
+## Running the System
+
+Once both frontend and backend servers are running, the system is ready for use. Open your web browser and go to `http://localhost:3000` to access the frontend interface.
+
+---
+
+## Using the System
+
+1. **Upload Resume**: On the main page, upload a resume file in PDF or Word format.
+2. **View Analysis**: Once uploaded, the system will analyze the resume and display key skills, experiences, and any extracted information.
+3. **Get Job Recommendations**: Based on the extracted data, the system will recommend job positions that match the candidate's profile.
+4. **Download Feedback**: Download the generated report with personalized feedback and recommendations.
+
+---
+
+## Troubleshooting
+
+- **Backend not starting**: Ensure you have installed all dependencies and are using Python 3.8 or above.
+- **Frontend not displaying**: Verify that all npm dependencies are installed, and the backend is running on the correct port.
+- **Connection issues**: Ensure both frontend and backend are running locally on the specified ports (default: 3000 for frontend, 5000 for backend).
+
+---
+
+Feel free to reach out with any questions or issues in the **Issues** section of this repository. Happy coding!
 ## SECTION 6 : PROJECT REPORT / PAPER
 
 `Refer to project report at Github Folder: ProjectReport`
