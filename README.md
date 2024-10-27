@@ -41,7 +41,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 | Official Full Name  | Student ID (MTech Applicable)  | Work Items (Who Did What) | Email (Optional) |
 | :------------ |:---------------:| :-----| :-----|
 | Cheng Siyuan | A0287262X | Software structure design, backend development, model deployment, backend data pre-processing and post-processing| e1285208@u.nus.edu |
-| Qing Jiayu | A1234567B | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567B@gmail.com |
+| Qin Jiayu | A1234567B | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567B@gmail.com |
 | Wang Xiang | A1234567C | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567C@outlook.com |
 | Zhu Yinge | A1234567D | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567D@yahoo.com |
 
