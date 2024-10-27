@@ -35,7 +35,7 @@ Working on this project has been a highly rewarding experience for our team, pro
 
 ---
 
-## SECTION 4 : VIDEO OF Project
+## SECTION 4 : VIDEO OF PROJECT
 
 - [Project promotion video](https://drive.google.com/file/d/14I5_YVURfvmAWitpCWfyjAgcxMFFJLGA/view?usp=sharing)
 - [Project presentation video](https://drive.google.com/file/d/1KNX_FoXXAnKZpKmDR0-0KANh2k3O0-ha/view?usp=sharing)
