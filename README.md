@@ -56,15 +56,6 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 ## SECTION 5 : USER GUIDE
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
-Here’s a refined version of your system overview and deployment instructions, formatted like a GitHub README. This should make it clearer and more user-friendly:
-
----
-
-# Resume Classification System
-
-## Overview
-
-The **Resume Classification System** simplifies job searching for users by analyzing resumes and classifying suitable job roles using machine learning. The system extracts personal information (such as names and emails) from resumes and utilizes the KNN algorithm for effective pattern recognition, matching users’ skills and experiences with potential job opportunities.
 
 ### Technologies Used
 - **Frontend**: React.js
@@ -137,9 +128,7 @@ Once the classification is complete, you will be redirected to the results page,
 - Classification results are grouped by the most suitable job titles.
 - Click on job title cards to view details, including extracted information such as name, email, phone number, gender, and keywords from each resume.
 
----
 
-Feel free to adjust any sections further based on your specific requirements or preferences!
 
 ## SECTION 6 : PROJECT REPORT / PAPER
 
