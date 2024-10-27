@@ -15,6 +15,9 @@
 
 <img src="Resume.png"
      style="float: left; margin-right: 0px;" />
+<img src="result.png"
+     style="float: left; margin-right: 0px;" />
+
 
 ---
 
