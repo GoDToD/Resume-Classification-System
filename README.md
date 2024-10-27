@@ -152,10 +152,3 @@ Once the classification is complete, you will be redirected to the results page,
 - Appendix of report: References (if applicable)
 
 ---
-## SECTION 7 : MISCELLANEOUS
-
-`Refer to Github Folder: Miscellaneous`
-
-### HDB_BTO_SURVEY.xlsx
-* Results of survey
-* Insights derived, which were subsequently used in our system
