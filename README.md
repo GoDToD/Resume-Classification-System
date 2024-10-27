@@ -11,7 +11,7 @@
 ---
 
 ## SECTION 1 : PROJECT TITLE
-## Singapore Housing & Deveoplment Board - BTO Recommender System
+## IntelliResume Classification and Job Recommendation System 
 
 <img src="SystemCode/clips/static/hdb-bto.png"
      style="float: left; margin-right: 0px;" />
