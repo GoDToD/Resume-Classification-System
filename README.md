@@ -56,123 +56,91 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 ## SECTION 5 : USER GUIDE
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
-
-Here's a sample format for a **User Guide** in Markdown format that you could use in your GitHub repository to explain the usage of the frontend and backend:
-
----
-
-# Resume Recognition and Recommendation System User Guide
-
-This user guide provides instructions on how to set up, run, and interact with the frontend and backend components of the Resume Recognition and Recommendation System.
+Here’s a refined version of your system overview and deployment instructions, formatted like a GitHub README. This should make it clearer and more user-friendly:
 
 ---
 
-## Table of Contents
-1. [System Requirements](#system-requirements)
-2. [Backend Setup](#backend-setup)
-3. [Frontend Setup](#frontend-setup)
-4. [Running the System](#running-the-system)
-5. [Using the System](#using-the-system)
+# Resume Classification System
+
+## Overview
+
+The **Resume Classification System** simplifies job searching for users by analyzing resumes and classifying suitable job roles using machine learning. The system extracts personal information (such as names and emails) from resumes and utilizes the KNN algorithm for effective pattern recognition, matching users’ skills and experiences with potential job opportunities.
+
+### Technologies Used
+- **Frontend**: React.js
+- **Backend**: Flask
+- **Machine Learning**: KNN algorithm
+
+## Frontend & Backend Applications
+
+The frontend is developed using the **React** framework, communicating with the backend via APIs developed in **Flask**. Users can upload their resume files from the frontend, and the backend processes these files, returning results in JSON format.
+
+### Key Features
+- Upload .pdf and .docx resume files.
+- Extract personal information from resumes.
+- Classify resumes into suitable job roles.
+- Display classification results with detailed information.
+
+## Deployment Instructions
+
+### System Requirements
+- **Operating System**: Windows 11
+- **Python**: Ensure you have a working Python installation.
+
+### Backend Setup
+1. **Install Required Libraries**:
+   Open a terminal and run:
+   ```bash
+   pip install Flask Flask-Cors PyPDF2 numpy pandas nltk scikit-learn python-docx
+   ```
+
+2. **Download NLTK Resources**:
+   Open the Python shell and execute the following commands:
+   ```python
+   import nltk
+   nltk.download('names')
+   nltk.download('words')
+   nltk.download('stopwords')
+   nltk.download('punkt')
+   nltk.download('averaged_perceptron_tagger')
+   nltk.download('maxent_ne_chunker')
+   exit()
+   ```
+
+3. **Run the Backend**:
+   Navigate to the backend directory and start the server:
+   ```bash
+   cd <path_to_system>/Resume-Classification-System/SystemCode/backend
+   python main.py
+   ```
+
+### Frontend Setup
+1. **Install Node.js**: Make sure you have Node.js installed.
+
+2. **Run the Frontend**:
+   Open a new terminal and navigate to the frontend directory:
+   ```bash
+   cd <path_to_system>/Resume-Classification-System/SystemCode/frontend
+   npm install
+   npm start
+   ```
+
+3. **Access the Application**:
+   Open your browser and navigate to [http://127.0.0.1:3000/](http://127.0.0.1:3000/). This is the home page where you can upload your resume.
+
+### Using the System
+- Click the “Choose Files” button to select one or more resumes.
+- Click the “Upload” button to upload the selected resumes.
+- Use the “Clear” button to remove and re-select files.
+
+Once the classification is complete, you will be redirected to the results page, where:
+- Classification results are grouped by the most suitable job titles.
+- Click on job title cards to view details, including extracted information such as name, email, phone number, gender, and keywords from each resume.
 
 ---
 
-## System Requirements
+Feel free to adjust any sections further based on your specific requirements or preferences!
 
-Before setting up the system, ensure that you have the following software installed:
-
-- **Python 3.8+**
-- **Node.js 14+**
-- **npm** (comes with Node.js)
-- **Pipenv** (for managing Python dependencies)
-
----
-
-## Backend Setup
-
-The backend is responsible for processing resumes, classifying skills, and generating job recommendations.
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/GoDToD/Resume-Classification-System.git
-cd Resume-Classification-System/SystemCode
-```
-
-### Step 2: Install Dependencies
-
-Navigate to the backend directory and install dependencies using Pipenv:
-
-```bash
-cd backend
-pipenv install
-```
-
-### Step 3: Start the Backend Server
-
-After installing dependencies, you can run the backend server:
-
-```bash
-pipenv run python main.py
-```
-
-The backend will start on `http://localhost:5000` by default.
-
----
-
-## Frontend Setup
-
-The frontend provides a user-friendly interface for uploading resumes and viewing job recommendations.
-
-### Step 1: Navigate to the Frontend Directory
-
-```bash
-cd ../frontend
-```
-
-### Step 2: Install Dependencies
-
-Install the required frontend dependencies using npm:
-
-```bash
-npm install
-```
-
-### Step 3: Start the Frontend Server
-
-Run the following command to start the frontend server:
-
-```bash
-npm start
-```
-
-The frontend will start on `http://localhost:3000` by default.
-
----
-
-## Running the System
-
-Once both frontend and backend servers are running, the system is ready for use. Open your web browser and go to `http://localhost:3000` to access the frontend interface.
-
----
-
-## Using the System
-
-1. **Upload Resume**: On the main page, upload a resume file in PDF or Word format.
-2. **View Analysis**: Once uploaded, the system will analyze the resume and display key skills, experiences, and any extracted information.
-3. **Get Job Recommendations**: Based on the extracted data, the system will recommend job positions that match the candidate's profile.
-4. **Download Feedback**: Download the generated report with personalized feedback and recommendations.
-
----
-
-## Troubleshooting
-
-- **Backend not starting**: Ensure you have installed all dependencies and are using Python 3.8 or above.
-- **Frontend not displaying**: Verify that all npm dependencies are installed, and the backend is running on the correct port.
-- **Connection issues**: Ensure both frontend and backend are running locally on the specified ports (default: 3000 for frontend, 5000 for backend).
-
----
-
-Feel free to reach out with any questions or issues in the **Issues** section of this repository. Happy coding!
 ## SECTION 6 : PROJECT REPORT / PAPER
 
 `Refer to project report at Github Folder: ProjectReport`
