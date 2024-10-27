@@ -123,7 +123,7 @@ Once the classification is complete, you will be redirected to the results page,
 
 ## SECTION 6 : PROJECT REPORT / PAPER
 
-[查看项目报告](https://github.com/GoDToD/Resume-Classification-System/blob/master/ProjectReport/IRS-PM-2024-10-27-AIS06FT-GRP-SmartBoys-IntelliResume%20Classification%20and%20Job%20Recommendation%20System-Group12-Report.pdf)
+[Click here to see project report](https://github.com/GoDToD/Resume-Classification-System/blob/master/ProjectReport/IRS-PM-2024-10-27-AIS06FT-GRP-SmartBoys-IntelliResume%20Classification%20and%20Job%20Recommendation%20System-Group12-Report.pdf)
 
 
 ---
