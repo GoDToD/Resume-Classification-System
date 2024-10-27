@@ -37,8 +37,8 @@ Working on this project has been a highly rewarding experience for our team, pro
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-- [项目推广视频](https://github.com/GoDToD/Resume-Classification-System/blob/master/Video/IRS-PM-2024-10-27-AIS06FT-GRP-SmartBoys-IntelliResume%20Classification%20and%20Job%20Recommendation%20System-promotion.mp4)
-- [系统演示视频](https://github.com/GoDToD/Resume-Classification-System/blob/master/Video/IRS-PM-2024-10-27-AIS06FT-GRP-SmartBoys-IntelliResume%20Classification%20and%20Job%20Recommendation%20System-system.mp4)
+- [项目推广视频](https://drive.google.com/file/d/14I5_YVURfvmAWitpCWfyjAgcxMFFJLGA/view?usp=sharing)
+- [系统演示视频](https://drive.google.com/file/d/1KNX_FoXXAnKZpKmDR0-0KANh2k3O0-ha/view?usp=sharing)
 
 
 
